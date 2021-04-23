@@ -32,7 +32,7 @@ function FavoritesScreen({navigation, favorites, syncFavoritesList}) {
 const styles = StyleSheet.create({
   headerWrapper: {
     flexDirection: 'row',
-    height: 60,
+    height: 56,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#000',

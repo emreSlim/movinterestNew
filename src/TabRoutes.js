@@ -17,7 +17,6 @@ function TabRoutes() {
         backgroundColor: '#000',
         borderLeftWidth: 0.5,
         borderColor: 'grey',
-        height: 70,
       }}>
       <Tab.Screen
         name="home-tab"

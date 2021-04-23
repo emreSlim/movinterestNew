@@ -73,7 +73,7 @@ function MovieDetails({
       <Image
         style={styles.poster}
         source={
-          movie?.poster_path
+          movie?.backdrop_path
             ? {
                 uri: getImageURL(movie?.backdrop_path),
               }
@@ -128,7 +128,7 @@ function MovieDetails({
         <Text style={{color: '#555', width: 70}}>Press to Toggle</Text>
       </View>
       <View style={styles.overview}>
-        <View style={{backgroundColor: '#000'}}>
+        <View style={{justifyContent: 'center'}}>
           <Image
             style={styles.secondaryPoster}
             source={
@@ -141,7 +141,7 @@ function MovieDetails({
           />
         </View>
         <Text style={styles.overviewText}>
-          {'     '}
+          {'  '}
           {movie?.overview}
         </Text>
       </View>

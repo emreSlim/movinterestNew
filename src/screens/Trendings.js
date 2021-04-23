@@ -5,7 +5,6 @@ import {
   FlatList,
   Image,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -31,113 +30,119 @@ export default function Trendings({navigation}) {
   }, []);
 
   return (
-    <ScrollView style={globalstyles.tabBg}>
+    <View style={globalstyles.tabBg}>
       <View style={styles.headerWrapper}>
         <Text style={styles.headerText}>Trendings</Text>
         <Icon name="fire" color="#ec4" size={30} />
       </View>
-      <Text style={styles.heading}>Today</Text>
-      <View style={styles.listContainer}>
-        {trendingMovies.length ? (
-          <FlatList
-            contentContainerStyle={styles.contentContainerStyle}
-            horizontal={true}
-            keyExtractor={(item, index) => index}
-            data={trendingMovies}
-            renderItem={({item, index}) => {
-              if (!item.title) {
-                return;
-              }
-              return (
-                <Pressable
-                  onPress={() => {
-                    handleClick(item.id);
-                  }}
-                  style={{flexDirection: 'column'}}>
-                  <View style={styles.itemContainer}>
-                    <Image
-                      resizeMode="contain"
-                      style={styles.image}
-                      source={
-                        item.poster_path
-                          ? {uri: getImageURL(item.poster_path, 200)}
-                          : require('../images/default-image.jpg')
-                      }
-                    />
-                  </View>
-                  <Text numberOfLines={1} style={styles.title}>
-                    {item.title}
-                  </Text>
-                </Pressable>
-              );
-            }}
-          />
-        ) : (
-          <View
-            style={{
-              flex: 1,
-              justifyContent: 'center',
-              backgroundColor: '#151515',
-            }}>
-            <ActivityIndicator size="large" color="#fff" />
-            <Text style={{...globalstyles.placeholder, flex: 0}}>
-              Loading..
-            </Text>
+      <View style={{flex: 1, justifyContent: 'space-around'}}>
+        <View>
+          <Text style={styles.heading}>Today</Text>
+          <View style={styles.listContainer}>
+            {trendingMovies.length ? (
+              <FlatList
+                contentContainerStyle={styles.contentContainerStyle}
+                horizontal={true}
+                keyExtractor={(item, index) => index}
+                data={trendingMovies}
+                renderItem={({item, index}) => {
+                  if (!item.title) {
+                    return;
+                  }
+                  return (
+                    <Pressable
+                      onPress={() => {
+                        handleClick(item.id);
+                      }}
+                      style={{flexDirection: 'column'}}>
+                      <View style={styles.itemContainer}>
+                        <Image
+                          resizeMode="contain"
+                          style={styles.image}
+                          source={
+                            item.poster_path
+                              ? {uri: getImageURL(item.poster_path)}
+                              : require('../images/default-image.jpg')
+                          }
+                        />
+                      </View>
+                      <Text numberOfLines={1} style={styles.title}>
+                        {item.title}
+                      </Text>
+                    </Pressable>
+                  );
+                }}
+              />
+            ) : (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  backgroundColor: '#151515',
+                }}>
+                <ActivityIndicator size="large" color="#fff" />
+                <Text style={{...globalstyles.placeholder, flex: 0}}>
+                  Loading..
+                </Text>
+              </View>
+            )}
           </View>
-        )}
-      </View>
-      <Text style={styles.heading}>This Week</Text>
-      <View style={styles.listContainer}>
-        {trendingOnWeek.length ? (
-          <FlatList
-            contentContainerStyle={styles.contentContainerStyle}
-            horizontal={true}
-            keyExtractor={(item, index) => index}
-            data={trendingOnWeek}
-            renderItem={({item, index}) => {
-              if (!item.title) {
-                return;
-              }
-              return (
-                <Pressable
-                  style={{flexDirection: 'column'}}
-                  onPress={() => {
-                    handleClick(item.id);
-                  }}>
-                  <View style={styles.itemContainer}>
-                    <Image
-                      resizeMode="contain"
-                      style={styles.image}
-                      source={
-                        item.poster_path
-                          ? {uri: getImageURL(item.poster_path, 200)}
-                          : require('../images/default-image.jpg')
-                      }
-                    />
-                  </View>
-                  <Text numberOfLines={1} style={styles.title}>
-                    {item.title}
-                  </Text>
-                </Pressable>
-              );
-            }}
-          />
-        ) : (
-          <View
-            style={{
-              flex: 1,
+        </View>
+        <View>
+          <Text style={styles.heading}>This Week</Text>
+          <View style={styles.listContainer}>
+            {trendingOnWeek.length ? (
+              <FlatList
+                contentContainerStyle={styles.contentContainerStyle}
+                horizontal={true}
+                keyExtractor={(item, index) => index}
+                data={trendingOnWeek}
+                renderItem={({item, index}) => {
+                  if (!item.title) {
+                    return;
+                  }
+                  return (
+                    <Pressable
+                      style={{flexDirection: 'column'}}
+                      onPress={() => {
+                        handleClick(item.id);
+                      }}>
+                      <View style={styles.itemContainer}>
+                        <Image
+                          resizeMode="contain"
+                          style={styles.image}
+                          source={
+                            item.poster_path
+                              ? {uri: getImageURL(item.poster_path)}
+                              : require('../images/default-image.jpg')
+                          }
+                        />
+                      </View>
+                      <Text numberOfLines={1} style={styles.title}>
+                        {item.title}
+                      </Text>
+                    </Pressable>
+                  );
+                }}
+              />
+            ) : (
+              <View
+                style={{
+                  flex: 1,
 
-              justifyContent: 'center',
-              backgroundColor: '#151515',
-            }}>
-            <ActivityIndicator size="large" color="#fff" />
-            <Text style={{...globalstyles.placeholder, flex: 0}}>
-              Loading..
-            </Text>
+                  justifyContent: 'center',
+                  backgroundColor: '#151515',
+                }}>
+                <ActivityIndicator size="large" color="#fff" />
+                <Text style={{...globalstyles.placeholder, flex: 0}}>
+                  Loading..
+                </Text>
+              </View>
+            )}
           </View>
-        )}
+        </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -150,7 +155,7 @@ const styles = StyleSheet.create({
   },
   headerWrapper: {
     flexDirection: 'row',
-    height: 60,
+    height: 56,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#000',
@@ -178,7 +183,7 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   heading: {
-    marginTop: 40,
+    marginTop: 10,
     color: '#fff',
     fontSize: 40,
   },

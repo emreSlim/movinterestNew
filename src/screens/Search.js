@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Keyboard,
@@ -70,15 +71,16 @@ export default function SearchTab({navigation}) {
       <View style={globalstyles.tabBg}>
         <View style={styles.upperSubContainer}>
           <View style={styles.inputBoxContainer}>
-            <Icon onPress={handleChange} name="search" color="#444" size={25} />
+            <Icon onPress={handleChange} name="search" color="#888" size={25} />
             <TextInput
+              placeholderTextColor="#666"
               onBlur={() => setPlaceHolderText('Perform a search!')}
               ref={inputRef}
               onChangeText={handleChange}
               style={styles.inputBox}
               placeholder="Search Movies"
             />
-            <Icon onPress={clearInput} name="close" color="#444" size={25} />
+            <Icon onPress={clearInput} name="close" color="#888" size={25} />
           </View>
         </View>
         {searchedMovieList ? (
@@ -127,28 +129,25 @@ export default function SearchTab({navigation}) {
 
 const styles = StyleSheet.create({
   upperSubContainer: {
-    backgroundColor: 'rgb(125,125,125)',
-    width: '100%',
+    backgroundColor: '#252525',
     elevation: 10,
   },
   inputBoxContainer: {
     elevation: 5,
     alignSelf: 'center',
-    width: '90%',
-    backgroundColor: '#ddd',
-    marginVertical: 20,
+    backgroundColor: '#000',
+    margin: 10,
     flexDirection: 'row',
     borderColor: 'grey',
     borderRadius: 8,
     borderWidth: 0.5,
     alignItems: 'center',
-
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   inputBox: {
     flexGrow: 1,
-    color: '#000',
-    height: 60,
+    color: '#fff',
+    height: 50,
     fontSize: 18,
     padding: 10,
   },

@@ -20,8 +20,4 @@ function favoritesReducer(state = [], action) {
 
 const store = createStore(favoritesReducer);
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
-
 export {store};
