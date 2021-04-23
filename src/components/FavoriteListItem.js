@@ -53,20 +53,6 @@ export default function FavListItem({movieId, navigation}) {
             <Text style={styles.itemTitle}>{title}</Text>
             <Text style={{color: '#fff'}}>{tagLine}</Text>
           </View>
-          <Image
-            style={{
-              ...styles.image,
-              borderBottomLeftRadius: 10,
-              borderTopRightRadius: 10,
-            }}
-            source={
-              secondaryImageSrc
-                ? {
-                    uri: secondaryImageSrc,
-                  }
-                : require('../images/dummy-posterr.jpg')
-            }
-          />
         </Pressable>
       ) : (
         <View style={styles.spinner}>
@@ -80,8 +66,7 @@ export default function FavListItem({movieId, navigation}) {
 const styles = StyleSheet.create({
   itemContainer: {
     borderRadius: 10,
-
-    alignItems: 'center',
+    alignItems: 'flex-end',
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#444',
@@ -92,7 +77,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 30,
     color: '#fff',
-    textAlignVertical: 'center',
   },
   image: {
     width: 100,

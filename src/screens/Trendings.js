@@ -40,10 +40,8 @@ export default function Trendings({navigation}) {
         style={{flex: 1}}
         contentContainerStyle={{
           flex: 1,
-
-          justifyContent: 'space-around',
         }}>
-        <View>
+        <View style={{flex: 1}}>
           <Text style={styles.heading}>Today</Text>
           <View style={styles.listContainer}>
             {trendingMovies.length ? (
@@ -61,8 +59,8 @@ export default function Trendings({navigation}) {
                       onPress={() => {
                         handleClick(item.id);
                       }}
-                      style={{flexDirection: 'column'}}>
-                      <View style={styles.itemContainer}>
+                      style={styles.itemContainer}>
+                      <View style={styles.imageContainer}>
                         <Image
                           resizeMode="contain"
                           style={styles.image}
@@ -85,17 +83,14 @@ export default function Trendings({navigation}) {
                 style={{
                   flex: 1,
                   justifyContent: 'center',
-                  backgroundColor: '#151515',
                 }}>
                 <ActivityIndicator size="large" color="#fff" />
-                <Text style={{...globalstyles.placeholder, flex: 0}}>
-                  Loading..
-                </Text>
+                <Text style={{...globalstyles.placeholder}}>Loading..</Text>
               </View>
             )}
           </View>
         </View>
-        <View>
+        <View style={{flex: 1}}>
           <Text style={styles.heading}>This Week</Text>
           <View style={styles.listContainer}>
             {trendingOnWeek.length ? (
@@ -110,11 +105,11 @@ export default function Trendings({navigation}) {
                   }
                   return (
                     <Pressable
-                      style={{flexDirection: 'column'}}
+                      style={styles.itemContainer}
                       onPress={() => {
                         handleClick(item.id);
                       }}>
-                      <View style={styles.itemContainer}>
+                      <View style={styles.imageContainer}>
                         <Image
                           resizeMode="contain"
                           style={styles.image}
@@ -136,14 +131,10 @@ export default function Trendings({navigation}) {
               <View
                 style={{
                   flex: 1,
-
                   justifyContent: 'center',
-                  backgroundColor: '#151515',
                 }}>
                 <ActivityIndicator size="large" color="#fff" />
-                <Text style={{...globalstyles.placeholder, flex: 0}}>
-                  Loading..
-                </Text>
+                <Text style={{...globalstyles.placeholder}}>Loading..</Text>
               </View>
             )}
           </View>
@@ -168,13 +159,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     elevation: 5,
   },
-  listContainer: {},
+  listContainer: {
+    flex: 1,
+  },
   itemContainer: {
-    alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: '#252525',
+  },
+  imageContainer: {
     marginHorizontal: 6,
+    marginTop: 6,
+    alignItems: 'center',
     borderRadius: 8,
-    height: 180,
+    backgroundColor: '#000',
   },
   image: {
     height: 180,
@@ -187,7 +183,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     padding: 5,
     color: '#fff',
-    paddingBottom: 0,
   },
   heading: {
     marginTop: 10,
@@ -195,10 +190,8 @@ const styles = StyleSheet.create({
     fontSize: 40,
   },
   contentContainerStyle: {
-    paddingHorizontal: 6,
-    flexGrow: 0,
-    paddingVertical: 6,
+    padding: 6,
+    alignItems: 'center',
     marginVertical: 10,
-    backgroundColor: '#353535',
   },
 });
