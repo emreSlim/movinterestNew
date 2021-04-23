@@ -207,6 +207,7 @@ function MovieDetails({
                   <View style={{flexDirection: 'column'}}>
                     <View style={styles.itemContainer}>
                       <Image
+                        resizeMode={item.logo_path ? 'contain' : 'cover'}
                         style={styles.companyLogo}
                         source={
                           item.logo_path
@@ -281,9 +282,9 @@ const styles = StyleSheet.create({
   },
   companyLogo: {
     borderRadius: 5,
-
     height: 150,
-    width: 150,
+    width: '100%',
+    minWidth: 150,
   },
   companyLabel: {
     color: '#fff',

@@ -5,6 +5,7 @@ import {
   FlatList,
   Image,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -35,7 +36,13 @@ export default function Trendings({navigation}) {
         <Text style={styles.headerText}>Trendings</Text>
         <Icon name="fire" color="#ec4" size={30} />
       </View>
-      <View style={{flex: 1, justifyContent: 'space-around'}}>
+      <ScrollView
+        style={{flex: 1}}
+        contentContainerStyle={{
+          flex: 1,
+
+          justifyContent: 'space-around',
+        }}>
         <View>
           <Text style={styles.heading}>Today</Text>
           <View style={styles.listContainer}>
@@ -141,7 +148,7 @@ export default function Trendings({navigation}) {
             )}
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -161,19 +168,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     elevation: 5,
   },
-  listContainer: {
-    height: 215,
-  },
+  listContainer: {},
   itemContainer: {
     alignItems: 'center',
     backgroundColor: '#000',
-    marginHorizontal: 3,
+    marginHorizontal: 6,
     borderRadius: 8,
-    height: 160,
+    height: 180,
   },
   image: {
-    height: 160,
-    width: 150,
+    height: 180,
+    borderRadius: 8,
+    width: '100%',
+    minWidth: 120,
   },
   title: {
     fontWeight: 'bold',
@@ -188,6 +195,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
   },
   contentContainerStyle: {
+    paddingHorizontal: 6,
     flexGrow: 0,
     paddingVertical: 6,
     marginVertical: 10,
