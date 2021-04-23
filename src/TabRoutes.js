@@ -23,7 +23,7 @@ function TabRoutes() {
         options={{
           tabBarLabel: 'Trendings',
           tabBarIcon: ({color}) => (
-            <Icon name="hotjar" color={color} size={24} />
+            <Icon name="hotjar" color={color} size={22} />
           ),
         }}
         component={Trendings}
@@ -34,7 +34,7 @@ function TabRoutes() {
           tabBarLabel: 'Search',
 
           tabBarIcon: ({color}) => (
-            <Icon name="search" color={color} size={24} />
+            <Icon name="search" color={color} size={22} />
           ),
         }}
         component={Search}
@@ -44,7 +44,7 @@ function TabRoutes() {
         options={{
           tabBarLabel: 'Favorites',
 
-          tabBarIcon: ({color}) => <Icon name="star" color={color} size={24} />,
+          tabBarIcon: ({color}) => <Icon name="star" color={color} size={22} />,
         }}
         component={FavoritesScreen}
       />

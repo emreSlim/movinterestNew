@@ -208,7 +208,7 @@ function MovieDetails({
                     <View style={styles.itemContainer}>
                       <Image
                         resizeMode={item.logo_path ? 'contain' : 'cover'}
-                        style={styles.companyLogo}
+                        style={{...styles.companyLogo}}
                         source={
                           item.logo_path
                             ? {uri: getImageURL(item.logo_path, 200)}
@@ -279,6 +279,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 3,
     borderRadius: 5,
+    backgroundColor: '#eee',
   },
   companyLogo: {
     borderRadius: 5,
