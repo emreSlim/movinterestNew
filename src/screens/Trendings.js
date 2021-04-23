@@ -85,7 +85,9 @@ export default function Trendings({navigation}) {
                   justifyContent: 'center',
                 }}>
                 <ActivityIndicator size="large" color="#fff" />
-                <Text style={{...globalstyles.placeholder}}>Loading..</Text>
+                <Text style={{...globalstyles.placeholder, flex: 0}}>
+                  Loading..
+                </Text>
               </View>
             )}
           </View>
@@ -134,7 +136,9 @@ export default function Trendings({navigation}) {
                   justifyContent: 'center',
                 }}>
                 <ActivityIndicator size="large" color="#fff" />
-                <Text style={{...globalstyles.placeholder}}>Loading..</Text>
+                <Text style={{...globalstyles.placeholder, flex: 0}}>
+                  Loading..
+                </Text>
               </View>
             )}
           </View>
